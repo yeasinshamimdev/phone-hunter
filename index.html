@@ -22,7 +22,12 @@
                 <h1 class="text-white mb-3">My awesome phone mart</h1>
                 <div class="d-flex justify-content-center">
                     <input id="input-field" class="form-control w-50" type="text" placeholder="Enter your phone name">
-                    <button class="btn btn-primary ms-1">Search</button>
+                    <button onclick="loadData()" class="btn btn-primary ms-1">Search</button>
+                </div>
+                <p id="empty-error" class="w-50 bg-danger text-white py-3 text-center mx-auto mt-3 img-radius fs-6">Your input box is empty!! Please write any phone name!!</p>
+                <!-- spinner start -->
+                <div id="spinner" class="spinner-border text-primary mt-5 fs-3" role="status">
+                    <span class="visually-hidden">Loading...</span>
                 </div>
             </div>
         </div>
@@ -36,17 +41,8 @@
 
         <!-- Card section start  -->
         <div class="container mt-5">
-            <div class="row row-cols-1 row-cols-md-3 g-4">
-                <div class="col">
-                    <div class="card h-100 border-0">
-                        <img src="" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in
-                                to additional content. This content is a little bit longer.</p>
-                        </div>
-                    </div>
-                </div>
+            <div id="card-section" class="row row-cols-1 row-cols-md-3 g-5 mb-4">
+        
             </div>
         </div>
     </main>

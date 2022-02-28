@@ -6,8 +6,16 @@ body{
     font-family: 'Poppins', sans-serif;
     background-color: black;
 }
+/* Error style  */
+#empty-error{
+    display: none;
+}
 
 /* Card style  */
 .card{
     box-shadow: 5px 5px 200px rgba(255, 255, 255, 0.493);
+    border-radius: 20px !important;
+}
+.img-radius{
+    border-radius: 20px !important;
 }
