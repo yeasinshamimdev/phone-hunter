@@ -7,7 +7,7 @@ body{
     background-color: black;
 }
 /* Error style  */
-#empty-error, #wrong-value-error{
+#empty-error, #wrong-value-error, #spinner{
     display: none;
 }
 

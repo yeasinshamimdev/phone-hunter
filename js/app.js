@@ -2,10 +2,21 @@
 const emptyErrorMsg = document.getElementById('empty-error');
 const wrongMsg = document.getElementById('wrong-value-error');
 
+// spinner function
+const toggleSpinner = (displaySpinner) => {
+    document.getElementById('spinner').style.display = displaySpinner;
+}
+const toggleSpinner2 = (spinnerOn, spinnerOff) => {
+    document.getElementById('spinner').classList.add(spinnerOn);
+    document.getElementById('spinner').classList.remove(spinnerOff);
+}
+
 // Load data from Server
 const loadData = () => {
     const inputField = document.getElementById('input-field');
     const inputFieldValue = inputField.value;
+    const cardsDiv = document.getElementById('card-section');
+    cardsDiv.textContent = '';
 
     if(inputFieldValue === ''){
         emptyErrorMsg.style.display = 'block';
@@ -17,6 +28,8 @@ const loadData = () => {
         .then(data => displayData(data.data))
         emptyErrorMsg.style.display = 'none';
         wrongMsg.style.display = 'none';
+        toggleSpinner('block');
+        toggleSpinner2('d-flex', 'd-none');
     }
     inputField.value = '';
 }
@@ -29,6 +42,8 @@ const displayData = (phones) => {
     if(phones.length === 0){
         wrongMsg.style.display = 'block';
         emptyErrorMsg.style.display = 'none';
+        toggleSpinner('block');
+        toggleSpinner2('d-none', 'd-flex');
     }
     else{
         phones?.forEach(phone => {
@@ -46,5 +61,7 @@ const displayData = (phones) => {
             `;
             cardsDiv.appendChild(div);
         });
+        toggleSpinner('none');
+        toggleSpinner2('d-none', 'd-flex');
     }
 }
