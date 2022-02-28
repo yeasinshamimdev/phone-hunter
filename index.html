@@ -19,9 +19,9 @@
     <header>
         <div class="container mt-4">
             <div class="text-center">
-                <h1 class="text-white mb-3">My awesome phone mart</h1>
+                <h1 class="text-white mb-3">My awesome phone store</h1>
                 <div class="d-flex justify-content-center">
-                    <input id="input-field" class="form-control w-50" type="text" placeholder="Enter your phone name">
+                    <input id="input-field" class="form-control w-50" type="text" placeholder="Enter your phone name" value="air">
                     <button onclick="loadData()" class="btn btn-primary ms-1">Search</button>
                 </div>
                 <!-- Wrong value error message -->
@@ -41,15 +41,50 @@
     <main>
         <!-- Modal section start  -->
         <section>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div id="modal-div">
+                            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+                                    <div class="modal-content">
+                                        <div class="modal-header p-2">
+                                            <h5 class="modal-title" id="exampleModalLabel"></h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close">
+                                            </button>
+                                        </div>
+                                        <!-- Modal body  -->
+                                        <div class="modal-body">
+                                            <div class="d-flex justify-content-center">
+                                                <img id="modal-img" class="w-50 img-fluid" src="" alt="">
+                                            </div>
+                                            <div id="modal-details" class="text-center">
 
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="modal-footer p-0">
+                                            <button type="button" class="btn btn-primary p-1" data-bs-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- Card section start  -->
-        <div class="container mt-5">
-            <div id="card-section" class="row row-cols-1 row-cols-md-3 g-5 mb-4">
-        
+        <section>
+            <div class="container mt-5">
+                <div id="card-section" class="row row-cols-1 row-cols-md-3 g-5 mb-4">
+            
+                </div>
             </div>
-        </div>
+        </section>
     </main>
 
     <!-- Bootstrap Js link  -->
