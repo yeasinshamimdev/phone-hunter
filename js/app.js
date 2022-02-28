@@ -59,7 +59,9 @@ const displayData = (phones) => {
                 <button onclick="loadDetails('${phone.slug}')" class="btn btn-primary w-50 mx-auto mb-3 p-2 rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">More details</button>
             </div>
             `;
-            cardsDiv.appendChild(div);
+            if(phone <= 20){
+                cardsDiv.appendChild(div);
+            }
         });
         toggleSpinner('none');
         toggleSpinner2('d-none', 'd-flex');
@@ -77,12 +79,37 @@ const loadDetails = (details) => {
 // Display details function
 const displayDetails = (detail) => {
     console.log(detail);
+
+    // destructuring
+    const {storage, displaySize, chipSet, memory, sensors} = detail.mainFeatures;
+
     const modalImg = document.getElementById('modal-img');
     modalImg.setAttribute('src', `${detail.image}`);
     const modalDetails = document.getElementById('modal-details');
     modalDetails.classList.add('mt-3');
+
     modalDetails.innerHTML = `
         <h4><b>Name:</b> ${detail.name}</h4>
-        <h6><b>Release:</b>  ${detail.releaseDate ? detail.releaseDate : 'Release Date not available'} </h6>
+        <h6><b>Release:</b>  ${detail.releaseDate ? detail.releaseDate : 'Release Date not available.'} </h6>
+        <br>
+        <h5><b>Main Features:</b></h5>
+        <p><b>Storage:</b> ${storage}</p>
+        <p><b>Display Size:</b> ${displaySize}</p>
+        <p><b>Chip Set:</b> ${chipSet}</p>
+        <p><b>Memory:</b> ${memory}</p>
+        <div><b class="text-warning">Sensors:</b><h6 id="sensor-id"></h6></div>
+        <div><b class="text-warning"><h6>Others facility: </b></h6> <span id="others-div"> </span></div>
     `;
+    for(const other in detail.others){
+        const sensorId = document.getElementById('others-div');
+        const p = document.createElement('p');
+        p.innerText = `Name: ${other}`;
+        sensorId.appendChild(p);
+    }
+    for(const sensor of sensors){
+        const sensorId = document.getElementById('sensor-id');
+        const p = document.createElement('p');
+        p.innerText = `Name: ${sensor}`;
+        sensorId.appendChild(p);
+    }
 }
