@@ -1,0 +1,13 @@
+/* Google Font Link  */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* Common Style  */
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color: black;
+}
+
+/* Card style  */
+.card{
+    box-shadow: 5px 5px 200px rgba(255, 255, 255, 0.493);
+}
