@@ -33,10 +33,9 @@ const loadData = () => {
     }
     inputField.value = '';
 }
-loadData();
+
 // Display Data in the Card 
 const displayData = (phones) => {
-    console.log(phones);
     const cardsDiv = document.getElementById('card-section');
     cardsDiv.textContent = '';
     if(phones.length === 0){
@@ -46,7 +45,7 @@ const displayData = (phones) => {
         toggleSpinner2('d-none', 'd-flex');
     }
     else{
-        phones?.forEach(phone => {
+        phones.slice(0, 20)?.forEach(phone => {
             const div = document.createElement('div');
             div.classList.add('col');
             div.innerHTML = `
@@ -58,10 +57,8 @@ const displayData = (phones) => {
                 </div>
                 <button onclick="loadDetails('${phone.slug}')" class="btn btn-primary w-50 mx-auto mb-3 p-2 rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModal">More details</button>
             </div>
-            `;
-            if(phone <= 20){
-                cardsDiv.appendChild(div);
-            }
+            // `;
+            cardsDiv.appendChild(div);
         });
         toggleSpinner('none');
         toggleSpinner2('d-none', 'd-flex');
@@ -70,7 +67,6 @@ const displayData = (phones) => {
 
 // Details information function 
 const loadDetails = (details) => {
-    console.log(details);
     fetch(`https://openapi.programming-hero.com/api/phone/${details}`)
     .then(res => res.json())
     .then(data => displayDetails(data.data));
@@ -78,8 +74,6 @@ const loadDetails = (details) => {
 
 // Display details function
 const displayDetails = (detail) => {
-    console.log(detail);
-
     // destructuring
     const {storage, displaySize, chipSet, memory, sensors} = detail.mainFeatures;
 
@@ -103,7 +97,7 @@ const displayDetails = (detail) => {
     for(const other in detail.others){
         const sensorId = document.getElementById('others-div');
         const p = document.createElement('p');
-        p.innerText = `Name: ${other}`;
+        p.innerText = `Name: ${other ? other : 'No other result found!!'}`;
         sensorId.appendChild(p);
     }
     for(const sensor of sensors){
