@@ -19,3 +19,9 @@ body{
 .img-radius{
     border-radius: 20px !important;
 }
+/* Other simple style */
+.suggestion{
+    font-size: 0.7rem;
+    opacity: 0.6;
+    color: white;
+}
